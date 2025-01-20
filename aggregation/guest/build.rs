@@ -29,6 +29,7 @@ fn main() {
     let manifest_dir = PathBuf::from(std::env::var_os("CARGO_MANIFEST_DIR").unwrap());
     let use_docker = env::var("RISC0_USE_DOCKER").ok().map(|_| DockerOptions {
         root_dir: Some(manifest_dir.join("../..")),
+        env: vec![],
     });
 
     // Generate Rust source files for the methods crate.
